@@ -1,10 +1,10 @@
 <template>
-  <v-app>
-    <h1>ヘッダー</h1>
+  <v-app style="text-align: center;">
+    <h1>無限スワイプ</h1>
     <v-main>
       <HelloWorld/>
     </v-main>
-    <h1>フッター</h1>
+    <h2>スワイプしすぎて指紋なくなる!!</h2>
   </v-app>
 </template>
 

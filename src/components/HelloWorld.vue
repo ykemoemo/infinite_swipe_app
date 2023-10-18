@@ -1,51 +1,53 @@
 <template>
   <v-container>
-    <v-row class="text-center">
-      <v-col cols="12">
-        <v-img
-          :src="require('../assets/logo.svg')"
-          class="my-3"
-          contain
-          height="200"
-        />
-      </v-col>
-
-      <v-col class="mb-4">
-        <h1 class="display-2 font-weight-bold mb-3">
-          Welcome to the Vuetify 3 Beta
-        </h1>
-      </v-col>
-    </v-row>
     <v-card
       v-touch="{
-        up: function(){swipeObserve('上方向')},
-        right: function(){swipeObserve('右方向')},
-        down: function(){swipeObserve('下方向')},
-        left: function(){swipeObserve('左方向')}
+        up: function(){superLike(superLikeCount += 1)},
+        right: function(){like(likeCount += 1)},
+        down: function(){superNope(superNopeCount += 1)},
+        left: function(){nope(nopeCount += 1)}
       }"
-      height="200"
-      width="200"
+      height="500"
+      width="300"
       elevation="3"
+      style="margin: 0 auto;
+             margin-top: 20px;
+             margin-bottom: 20px;"
     >
-      スワイプの向き：{{direction}}
     </v-card>
+    <div style="text-align: center;">
+      スーパーライク数：{{superLikeCount}}<br>
+      ライク数：{{likeCount}}<br>
+      スーパーノープ数：{{superNopeCount}}<br>
+      ノープカウント数：{{nopeCount}}
+    </div>
   </v-container>
 </template>
 
 <script>
-
 export default {
   name: 'HelloWorld',
 
   methods: {
-    swipeObserve(e) {
-      this.direction = e;
+    superLike(e) {
+      this.superLikeCount = e;
+    },
+    like(e) {
+      this.likeCount = e;
+    },
+    superNope(e) {
+      this.superNopeCount = e;
+    },
+    nope(e) {
+      this.nopeCount = e;
     }
   },
 
   data: () => ({
-    direction: '',
-    // ...(他のdata)...
-  }),
+    superLikeCount: 0,
+    likeCount: 0,
+    superNopeCount: 0,
+    nopeCount: 0,
+  })
 }
 </script>
